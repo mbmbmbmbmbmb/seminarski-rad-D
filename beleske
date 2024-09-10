@@ -1,2 +1,6 @@
 Upoznavanje sa alatima Moose i SonarQ.
 TRazenje adekvatnog projekta za analizu.
+
+Projekat sa kojim zapocinjem analizu je poprilicno velik, ima 1120 klasa, 3512 atributa, 15282 metode... 
+Projekat je parsiran u .mse fajl pomocu VerveineJ pasera i importovan u Moose.
+POmocu Queries Browser-a mozemo kreirati razlicite upite i vrsiti selekciju za dalju analizu.
