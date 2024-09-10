@@ -19,3 +19,5 @@ Na slici mozemo da vidimo hijerarhiju nasledjivanja unutar jednog paketa.
 
 U Butterfly map mozemo videti strukturu jedne klase, sa leve strane vidimo sve tipove koji koriste zadatu klasu a sa leve sta se sve nalazi u toj klasi (ko zavisi od nje i od koga ona zavisi).
 Projekat koji sam pocela da analiziram izgleda nije dobro parsiran i cini mise da ce biti prevelik za analizu.
+
+Zapocinjem analizu sa drugim projektom koji deluje da je bolje parsiran i malo je manji od prethodnog.
