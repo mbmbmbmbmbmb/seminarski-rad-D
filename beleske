@@ -32,3 +32,5 @@ Ova klasa ukazuje na visok nivo slozenosti, teska je za razumevanje, odrzavanje 
 Dalje, 243 klase se nalaze unuatar paketa main/java/org/joda/time sto je ekvivalentno org/joda/time iz Moose analize gde se rezultati relativno poklapaju. Daljom analizom vidim da i klasa DateTimeFormaterBuilder ima 15 klasa. 
 Paket test/java/org/joda/time ima 214 klasa, u kom sve klase deluju dobro struktuirane i sadrze svega nekoliko klasa u sebi, u Moose alatu sve ove klase obuhvacene su unutar org/joda/time paketa.
 U Moose alatu mozemo detaljno da analiziramo klasu DateTimeBrowser unutar Butterfly map i vidimo da klasu ne koristi ni jedan objekat, a da se u njoj nalazi jako velik broj klasa ,metoda itd. Sa druge strane pomenuta klasa DateTimeFormatterBuilder ima jako puno elemenata i sa jedne i sa druge strane. Ovakav vizuelni prikaz ne moze se videti u sonarQube.
+
+kako izgleda query koji u  mooose pokazuje ugnjezdene pakete i klase?
