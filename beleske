@@ -4,3 +4,18 @@ TRazenje adekvatnog projekta za analizu.
 Projekat sa kojim zapocinjem analizu je poprilicno velik, ima 1120 klasa, 3512 atributa, 15282 metode... 
 Projekat je parsiran u .mse fajl pomocu VerveineJ pasera i importovan u Moose.
 POmocu Queries Browser-a mozemo kreirati razlicite upite i vrsiti selekciju za dalju analizu.
+
+Kada u upitu selektujemo svih 1120 klasa i otvorimo arhitectural map mozemo dodati veze nasledjivanja i tako analizirati dubinu nasedjivanja medju klasama. 
+Vidimo da je klasa BaseContextSensitiveText klasa koja se najvise nasledjuje, odnosno druge klase koriste njene metode ili ih prosiruju. 
+Kada malo bolje pogledamo koje klase nasledjuju klasu BaseContextSensitiveText vidimo da su to sve Test klase.
+Jos neke klase koje se najvise nasledjuju: BaseOpenmrsObject, BaseOpenmrsService, BaseChangableOpenmrsMetadata.
+
+Kada dodamo podupit da selektujemo sve Test klase mozemo videti da preko 50% Test klasa nasledjuje klasu BaseContextSensitiveText
+
+Kada upitom selektujemo pakete mozemo videti da je sav kod organizovan u dva glavna paketa liquibase i org. Iz slike mozemo da vidimo hijerarhiju nasledjivanja medju paketima.
+Paket liquibase nasledjuje elemente paketa org, odnosno paket liquibase.ext.change nasledjuje paket org.openmrs koji je najveci paket u projektu. Mozemo videti da dalje taj paket nasledjuje klasu DispatcherServlet iz paketa org.springframework.web.servlet.
+
+Na slici mozemo da vidimo hijerarhiju nasledjivanja unutar jednog paketa.
+
+U Butterfly map mozemo videti strukturu jedne klase, sa leve strane vidimo sve tipove koji koriste zadatu klasu a sa leve sta se sve nalazi u toj klasi (ko zavisi od nje i od koga ona zavisi).
+Projekat koji sam pocela da analiziram izgleda nije dobro parsiran i cini mise da ce biti prevelik za analizu.
