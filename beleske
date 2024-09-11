@@ -23,13 +23,13 @@ za pocetak uocavam da je Moose alat koji se fokusira na analizu složenosti klas
 
 Zapocinjem analizu sa drugim projektom koji deluje da je bolje parsiran i malo je manji od prethodnog.
 
-Moose pokazuje da projekat ima 12 paketa, upitom selektujem sve pakete i prikazem ih u Architectural map mogu da vidim da je glavni paket org u njemu senalazi paket joda u kom se nalaze paketi example i time. Paket example takodje ima paket time.
+Moose pokazuje da projekat ima 12 paketa, upitom selektujem sve pakete i prikazem ih u Architectural map mogu da vidim da je glavni paket org u njemu se nalazi paket joda u kom se nalaze paketi example i time. Paket example takodje ima paket time.
 Sto se nasledjivanja tice koje mozemo videti selektovanjem FamixTInheritance veze, nema nasledjivanja izmedju paketa org, joda, example i example.time, ali unutar samog paketa time ima dosta veza nasledjivanja.
 Kako bi se fokusirala iskljucivo na paket time, dodajem child query koji izdvaja samo taj paket po nazivu. Iz slike mozemo da vidimo da je najvise strelica upereno na paket base, sto znaci da velik broj elemenata nasledjuje ovaj paket, takodje jos jedan paket koji ima upecatljiv broj veza nasledjivanja je field.
-Sa druge strane, sonarQube pokazuje malo drugaciju strukturu paketa, glavni folder je src, a u njemu se nalaze changes, example/org/joda/example/time, main, site, test/java/org/joda/time.
+Sa druge strane, sonarQube pokazuje malo drugaciju strukturu paketa, glavni folder je src, a u njemu se nalaze changes, example/org/joda/example/time, main(u koem se nalazi org/joda/time kao u Moose), site, test/java/org/joda/time.
 
 Sto se klasa tice, Moose prepoznaje 528 razlicitih klasa, dok SonarQube broji 478 klasa. U Moose alatu mozemo videti veze nasledjivanja medju klasama, dok sonarQube ne nudi tu opciju.
-U sonarQube mozemo da vidimo da se u paketu example/org/joda/example/time nalazi 21 klasa, dok ekvivalentan paket org/joda/example/time u Moose ima svega 5 klasa, od cega se unutar klase DateTimeBrowser nalazi 13 klasa, isto to pokazuje i Moose. 
+U sonarQube mozemo da vidimo da se u paketu example/org/joda/example/time nalazi 5 klasa, dok ekvivalentan paket org/joda/example/time u Moose takodje ima 5 klasa, od cega se unutar klase DateTimeBrowser nalazi 13 klasa, isto to pokazuje i Moose. 
 Ova klasa ukazuje na visok nivo slozenosti, teska je za razumevanje, odrzavanje i testiranje, pre svega narusava Single Responsibility Principle gde bi svaka klasa trebalo da ima jednu jasno definisanu odgovornost, a i ponovna upotreba koda je znatno otezana.
 Dalje, 243 klase se nalaze unuatar paketa main/java/org/joda/time sto je ekvivalentno org/joda/time iz Moose analize gde se rezultati relativno poklapaju. Daljom analizom vidim da i klasa DateTimeFormaterBuilder ima 15 klasa. 
 Paket test/java/org/joda/time ima 214 klasa, u kom sve klase deluju dobro struktuirane i sadrze svega nekoliko klasa u sebi, u Moose alatu sve ove klase obuhvacene su unutar org/joda/time paketa.
@@ -39,8 +39,13 @@ kako izgleda query koji u  mooose pokazuje ugnjezdene pakete i klase?
 
 Unutar system complexity u Moose alatu mozemo videti broj metoda, broj atributa i broj linija koda jedne klase. Boja kvadratica predstavlja broj linija koda, tamnija boja predstavlja vise linija, dok svetlija manje.
 Na prvi pogled moze da se vidi da su najtamnije klase: DateTime, LocalDate, DateTimeZoneBuilder, LocalDateTime, ISODateTimeFormat, DateTimeFormatterBuilder i PeriodFormatterBuilder. Isti rezultat dobijamo i u sonarQube ali ne postoji opcija vizuelnog prikaza, i neophodno je rucno pretraziti svaku klasu u hijerarhiji i pogledati broj linija koda koji se u njoj nalaze. Definitivno je pristup koji nudi Moose laksi za citanje i razumevanje.
+
 Visinom kvadratica predstavljen je broj metoda klase, mozemo jasno videti da su najvisi kvadratici zapravo klase: DateTime, LocalDate, LocalDateTime, ISODateTimeFormat, TestLocalDateTime_Basics, TestLocalDate_Basics, DateTimeFormatterBuilder, TestDateTimeZoneCutover, TestPeriodConstructors i Period, dok u sonarQube uporedjivanjem brojki ne primecujem klasu Period jer ima svega 86 metoda naspram 100+ motoda koje imaju ostale navedene klase, nego klasu PeriodFormatterBuider koju ne primecujem u Moose alatu.
 Daljim istrazivanjem pronalazim klasu PeriodFormatterBuider u Moose alatu i privlacim je klasi Period, iz slike jasno moze da se vidi da je klasa Period(u sonarQube 86 metoda) predstavljena znatno visim kvadraticem u odnosu na PeriodFormatterBuider(u sonarQube 120 metoda).
+Takodje, u Moose alatu klada LocalDateTime ima 120 metoda dok u sonarQube ima 139, DateTime ima 108 a u sonarQube 127, klasa LocalDate u Moose 97, dok u sonarQube 115. Ovim vidimo da alati ne prebrojavaju metode na isti nacin.
 Daljim uporedjivanjem, primecujem da klase TestLocalDateTime_Basics i TestLocalDate_Basics nisam izdvojila u sonaQube analizi, buduci da imaju 79 i 92 metode(opet u poredjenju sa 100+ koje imaju ostale navedene klase), pronalazim te klasse u Moose i uporedjujem ih sa PeriodFormatterBuider(u sonarQube 120 metoda), iz slike se jasno vidi da su obe klase predstavljene kao mnogo vise od PeriodFormatterBuider klase.
+
 Sto se broja atributa tice, sonarQube nema opciju pregleda broja atributa, dok je u Moose alatu broj atributa predstavljen sirinom kockica, neke koje mogu da izdvojim PeriodFormatterBuider, AssembeledChronology, Constants, DateTimeFieldType, PeriodType.
 U podesavanjima je moguce promeniti kriterijume za visinu, sirinu i boju kvadratica. Kada primenim numberOfComments zapazam klasu LoadedFile kao klasu sa najvecim brojem komentara(iako u inspectoru pise da je broj komentara 5), dok je to u sonarQube klasa DateTime sa 1215 linija komentara. Kako bih uporedila broj komentara klase LoadedFile pokusala sam da je nadjem u sonarQube, ali ona tamo ne postoji. Kada otvorim inspector za klasu DateTime moze se videti da ona ima samo 2 komentara, za raliku od 1215 u sonarQube.
+
+
