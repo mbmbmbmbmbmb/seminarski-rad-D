@@ -23,7 +23,10 @@ za pocetak uocavam da je Moose alat koji se fokusira na analizu složenosti klas
 
 Zapocinjem analizu sa drugim projektom koji deluje da je bolje parsiran i malo je manji od prethodnog.
 
-Moose pokazuje da projekat ima 12 paketa, upitom selektujem sve pakete i prikazem ih u Architectural map mogu da vidim da je glavni paket org u njemu se nalazi paket joda u kom se nalaze paketi example i time. Paket example takodje ima paket time.
+Moose pokazuje da projekat ima 12 paketa sto mozemo videti selektovanjem paketa u Query Browseru dok u sonarQube pakete moramo da prebrojavamo rucno, upitom selektujem sve pakete i prikazem ih u Architectural map mogu da vidim da je glavni paket org u njemu se nalazi paket joda u kom se nalaze paketi example i time. Paket example takodje ima paket time.
+U sonarQube vidimo malo drugaciju organizaciju, glavni paket je src, paket example/org/joda/example/time je ekvivalentan paketu org/joda/example/time u Moose, paketi changes i site se ne nalazu u Moose, unutar paketa main nalaze se paketi assembly i checkstyle koji se takodje ne nalaze u Moose, i paket java/org/joda/time koji je ekvivalentan paketu org/joda/time u Moose. U sonarQube takodje postoji paket test/java/org/joda/time koji je u Moose alatu takodje org/joda/time.
+Vidimo malo drugaciju strukturu paketa buduci da neki paketi ne postoje u Moose sto moze biti i rezultat parsiranja.
+
 Sto se nasledjivanja tice koje mozemo videti selektovanjem FamixTInheritance veze, nema nasledjivanja izmedju paketa org, joda, example i example.time, ali unutar samog paketa time ima dosta veza nasledjivanja.
 Kako bi se fokusirala iskljucivo na paket time, dodajem child query koji izdvaja samo taj paket po nazivu. Iz slike mozemo da vidimo da je najvise strelica upereno na paket base, sto znaci da velik broj elemenata nasledjuje ovaj paket, takodje jos jedan paket koji ima upecatljiv broj veza nasledjivanja je field.
 Sa druge strane, sonarQube pokazuje malo drugaciju strukturu paketa, glavni folder je src, a u njemu se nalaze changes, example/org/joda/example/time, main(u koem se nalazi org/joda/time kao u Moose), site, test/java/org/joda/time.
@@ -33,6 +36,7 @@ U sonarQube mozemo da vidimo da se u paketu example/org/joda/example/time nalazi
 Ova klasa ukazuje na visok nivo slozenosti, teska je za razumevanje, odrzavanje i testiranje, pre svega narusava Single Responsibility Principle gde bi svaka klasa trebalo da ima jednu jasno definisanu odgovornost, a i ponovna upotreba koda je znatno otezana.
 Dalje, 243 klase se nalaze unuatar paketa main/java/org/joda/time sto je ekvivalentno org/joda/time iz Moose analize gde se rezultati relativno poklapaju. Daljom analizom vidim da i klasa DateTimeFormaterBuilder ima 15 klasa. 
 Paket test/java/org/joda/time ima 214 klasa, u kom sve klase deluju dobro struktuirane i sadrze svega nekoliko klasa u sebi, u Moose alatu sve ove klase obuhvacene su unutar org/joda/time paketa.
+
 U Moose alatu mozemo detaljno da analiziramo klasu DateTimeBrowser unutar Butterfly map i vidimo da klasu ne koristi ni jedan objekat, a da se u njoj nalazi jako velik broj klasa ,metoda itd. Sa druge strane pomenuta klasa DateTimeFormatterBuilder ima jako puno elemenata i sa jedne i sa druge strane. Ovakav vizuelni prikaz ne moze se videti u sonarQube.
 
 kako izgleda query koji u  mooose pokazuje ugnjezdene pakete i klase?
@@ -48,4 +52,6 @@ Daljim uporedjivanjem, primecujem da klase TestLocalDateTime_Basics i TestLocalD
 Sto se broja atributa tice, sonarQube nema opciju pregleda broja atributa, dok je u Moose alatu broj atributa predstavljen sirinom kockica, neke koje mogu da izdvojim PeriodFormatterBuider, AssembeledChronology, Constants, DateTimeFieldType, PeriodType.
 U podesavanjima je moguce promeniti kriterijume za visinu, sirinu i boju kvadratica. Kada primenim numberOfComments zapazam klasu LoadedFile kao klasu sa najvecim brojem komentara(iako u inspectoru pise da je broj komentara 5), dok je to u sonarQube klasa DateTime sa 1215 linija komentara. Kako bih uporedila broj komentara klase LoadedFile pokusala sam da je nadjem u sonarQube, ali ona tamo ne postoji. Kada otvorim inspector za klasu DateTime moze se videti da ona ima samo 2 komentara, za raliku od 1215 u sonarQube.
 
+U Moose alatu postoji distribution map gde mozemo da vidimo svih 528 klasa kao "kucice" gde prozorcici predstavljaju atribute i metode, ovo nam omogucava jako dobar vizuelni prikaz svih klasa u projektu i lako mozemo porediti velicinu klasa.
+U sonarQube alatu ovakva analiza bi bila mnogo teza buduci da ne postoji zapis o broju atributa unutar klase, a da bi uporedili broj metoda mooramo ulaziti rucno u svaki paket i gledati koja klasa ima koji broj metoda i tako vrsiti poredjenje velicine klasa celog projekta.
 
