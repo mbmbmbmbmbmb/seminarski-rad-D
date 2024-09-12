@@ -76,3 +76,17 @@ Glavna razlika koju mozemlo da vidimo je da Moose ne prepoznaje fajlove koji nis
 Sto se klasa tice Moose prepoznaje 41 klasu, dok sonarQube prepoznaje 40. Dubljim istrazivanjem mozemo videti da Moose zapravo prepoznaje 38 klasa buduci da ostale 3 koje razuna su anonymous i zapravo nisu klase, sto je verovatno zasluga parsera.
 Buduci da se radi o malom broju klasa lako je zakljuciti da dve klase koje se ne nalaze u Moose su OwnerRepository i VetRepository buduci da to zapravo nisu java lase vec interfejsi, koji se u Moose alatu nalaze jasno pod tipom interfejs.
 Kada su u pitanju veci projekti u kome se nalazi veci broj interfejsa ovaj propust moze dati losu sliku o broju klasa i ovim se moze preuvelicati slozenost projekta buduci da interfejsi ne sadrze implementaciju.
+
+Za uporedjivanje broja metoda koristim System Complexiti koji na vizuelni nacin prikazuje jasnu sliku velicine i kompleksnosti klasa u ovom slucaju.
+Jasno se vidi da klase Owner i OwnerControllerTests imaju isti broj metoda buduci da su iste visine, a u inspektoru se mozemo uveriti u to gde stoji da obe klase imaju 15 metoda. U sonarQube klasa Owner ima 13 metoda dok klasa OwnerControllerTests ima 14.
+Sa slike se jasno vidi da klasa OwnerControllerTests broji i metod <initializer> koji predstavlja konstruktor koji on broji cak i ako eksplicitno nije definisan, podrazumevani konstruktor se automatski generise. Isti slucaj je i za klasu Owner.
+Jos jedna klasa koja vidljivo ima veci broj metoda od ostalih je OwnerController sa 13 metoda, koja u sonarQube ima 12 iz istog razloga kao i prethodne jer Moose broji i <intializer> kao metod iako taj konstruktor nije eksplicitno definisan.
+Klasa koja ima najmanji broj metoda je definitivno TestConfiguration koja zapravo nema ni jedan metod u oba alata.
+Moose alat broji 168 metoda, a sonarQube 156, gde je razlika u <initializer> metodama.
+
+Broj linija definisan je bojom klase, najtamnije klase su ClinicServiceTests i OwnerControllerTests, sto se poklapa sa sonarQube gde te klase imaju 229 i 233 linije. 
+Ostale upadljive klase su PetController, OwnerController i Owner, sto se takodje poklapa sa sonarQube analizom gde imaju 163, 166 i 175. 
+Opet u Moose alatu smo jasno mogli da uporedimo broj metoda i linija koda unuat klasa dok u sonarQube to zahteva trazenje svake klase pojedinacno i uporedjivanjebrojki.
+
+Kada promenim podesavanja Sysyem Complexity-a mogu da vidim broj linija komentara. Jasno se moze videti da vecina klasa ima jednak broj komentara sto u inspectoru stoji da je 2.
+U sonarQube broj komentara je raznovrsan. Kada u inspectoru pogledam koje komentare Moose broji zapazam da Moose broji samo komentare koji se nalaze iznad klase, odnosno koji su vezani za klasu.
