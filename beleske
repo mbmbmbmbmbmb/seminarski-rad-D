@@ -69,3 +69,8 @@ Moose prepoznaje ukupno 9 paketa. Sto se tice sonarQube glavni paket je opet src
 Unutar main paketa nalaze se paketi resources, scss i java/org/springframework/samples/petclinic. Unutar paketa resources i scss nalaze se css, scss, html i properties fajlovi koje Moose izgleda ne prepoznaje.
 Kao i u pretpodnom primeru paket src/main/java/org/springframework/samples/petclinic u Moose je prestavljen kao org/springframework/samples/petclinic, odnosno buduci da se u paketima src/main/java ne nalaze java fajlovi koje Moose prepoznaje ti paketi ni ne postoje.
 I u ovom slucaju sonarQube prepoznaje poseban paket za testove test/java/org/springframework/samples/petclinic koji se u Moose ponovo nalaze u peketu org/springframework/samples/petclinic.
+Glavna razlika koju mozemlo da vidimo je da Moose ne prepoznaje fajlove koji nisu java, i samim tim odbacuje pakete u kojima se nalaze samo ti fajlovi. Druga razlika je sto ne prepoznaje test paket koji je iste strukture kao glavni paket gde se nalaze sve java klase samo sto je obuhvacen paketom test.
+
+Sto se klasa tice Moose prepoznaje 41 klasu, dok sonarQube prepoznaje 40. Dubljim istrazivanjem mozemo videti da Moose zapravo prepoznaje 38 klasa buduci da ostale 3 koje razuna su anonymous i zapravo nisu klase, sto je verovatno zasluga parsera.
+Buduci da se radi o malom broju klasa lako je zakljuciti da dve klase koje se ne nalaze u Moose su OwnerRepository i VetRepository buduci da to zapravo nisu java lase vec interfejsi, koji se u Moose alatu nalaze jasno pod tipom interfejs.
+Kada su u pitanju veci projekti u kome se nalazi veci broj interfejsa ovaj propust moze dati losu sliku o broju klasa i ovim se moze preuvelicati slozenost projekta buduci da interfejsi ne sadrze implementaciju.
