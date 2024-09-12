@@ -3,6 +3,9 @@ TRazenje adekvatnog projekta za analizu.
 
 sve slike koje pominjem u tekstu nalaze se u folderu images
 
+-------------------------------------------------------------------------------------------------------------------------------------------------
+openmrs
+
 Projekat sa kojim zapocinjem analizu je poprilicno velik, ima 1120 klasa, 3512 atributa, 15282 metode... 
 Projekat je parsiran u .mse fajl pomocu VerveineJ pasera i importovan u Moose.
 POmocu Queries Browser-a mozemo kreirati razlicite upite i vrsiti selekciju za dalju analizu.
@@ -20,6 +23,7 @@ U Butterfly map mozemo videti strukturu jedne klase, sa leve strane vidimo sve t
 Projekat koji sam pocela da analiziram izgleda nije dobro parsiran i cini mi se da ce biti prevelik za analizu. 
 
 ------------------------------------------------------------------------------------------------------------------------------------------------
+joda-time
 
 za pocetak uocavam da je Moose alat koji se fokusira na analizu složenosti klasa, metoda, broj metoda po klasi, broj linija po metodi, generalno analizu softverske arhitekture, dok SonarQube ima fokus na statickoj analzi, slozenost koda, duplikacije, broj linija, f-ja, klasa, pokrivenost testovima itd.
 
@@ -62,7 +66,8 @@ U sonarQube alatu ovakva analiza bi bila mnogo teza buduci da ne postoji zapis o
 Takodje, jako korisna mapa je Co Usage Map u kojoj mozemo da vidimo sve klase i metode kao "kucice" koje su cak i poredjane po velicini od najvece, sto dosta moze da pomogne u vizualizaciji velicine klasa i metoda velikih projekata.
 Metode i atributi su predstavljeni kao "prozori" gde prevlacenjem misa preko njih mozemo jasno da vidimo koje sve druge klase i metode koriste isti taj metod/atribut na koji pokazujemo, takodje jako korisna stvar. U sonarQube da bi poredili velicinu neke klase ili paketa, moramo rucno traziti za svaku klasu broj metoda, linija koda itd.
 
---------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------
+petclinic
 
 zapocinjem analizu na jos manjem projektu kako bih videla da li se ponavljaju iste razlike
 
