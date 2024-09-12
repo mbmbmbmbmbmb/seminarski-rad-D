@@ -63,3 +63,9 @@ Metode i atributi su predstavljeni kao "prozori" gde prevlacenjem misa preko nji
 --------------------------------------------------------------------------------------------------------------------------------------
 
 zapocinjem analizu na jos manjem projektu kako bih videla da li se ponavljaju iste razlike
+
+Selektovanjem paketa u Queries Browseru i prikazivanjem u Architectural map mogu da vidim organizaciju paketa ovog projekta. Kao i kod prethodnog glavni paket je org, a u njemu se nalaze springframework/samples/petclinic u kome se dalje nalaze paketi vet, system, service, owner i model.
+Moose prepoznaje ukupno 9 paketa. Sto se tice sonarQube glavni paket je opet src i u njemu se nalaze checkstyle, main i test/java/org/springframework/samples/petclinic. Unutar paketa checkstyle kao i kod prethodnog projekta nalaze se samo xml dokumenti sto moze biti razlog sto ga Moose ne prepoznaje ni u ovom slucaju.
+Unutar main paketa nalaze se paketi resources, scss i java/org/springframework/samples/petclinic. Unutar paketa resources i scss nalaze se css, scss, html i properties fajlovi koje Moose izgleda ne prepoznaje.
+Kao i u pretpodnom primeru paket src/main/java/org/springframework/samples/petclinic u Moose je prestavljen kao org/springframework/samples/petclinic, odnosno buduci da se u paketima src/main/java ne nalaze java fajlovi koje Moose prepoznaje ti paketi ni ne postoje.
+I u ovom slucaju sonarQube prepoznaje poseban paket za testove test/java/org/springframework/samples/petclinic koji se u Moose ponovo nalaze u peketu org/springframework/samples/petclinic.
