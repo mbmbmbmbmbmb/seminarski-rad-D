@@ -59,3 +59,7 @@ U Moose alatu postoji distribution map gde mozemo da vidimo svih 528 klasa kao "
 U sonarQube alatu ovakva analiza bi bila mnogo teza buduci da ne postoji zapis o broju atributa unutar klase, a da bi uporedili broj metoda mooramo ulaziti rucno u svaki paket i gledati koja klasa ima koji broj metoda i tako vrsiti poredjenje velicine klasa celog projekta.
 Takodje, jako korisna mapa je Co Usage Map u kojoj mozemo da vidimo sve klase i metode kao "kucice" koje su cak i poredjane po velicini od najvece, sto dosta moze da pomogne u vizualizaciji velicine klasa i metoda velikih projekata.
 Metode i atributi su predstavljeni kao "prozori" gde prevlacenjem misa preko njih mozemo jasno da vidimo koje sve druge klase i metode koriste isti taj metod/atribut na koji pokazujemo, takodje jako korisna stvar. U sonarQube da bi poredili velicinu neke klase ili paketa, moramo rucno traziti za svaku klasu broj metoda, linija koda itd.
+
+--------------------------------------------------------------------------------------------------------------------------------------
+
+zapocinjem analizu na jos manjem projektu kako bih videla da li se ponavljaju iste razlike
