@@ -18,7 +18,9 @@ Paket liquibase nasledjuje elemente paketa org, odnosno paket liquibase.ext.chan
 
 U Butterfly map mozemo videti strukturu jedne klase, sa leve strane vidimo sve tipove koji koriste zadatu klasu a sa leve sta se sve nalazi u toj klasi (ko zavisi od nje i od koga ona zavisi).
 Projekat koji sam pocela da analiziram izgleda nije dobro parsiran i cini mi se da ce biti prevelik za analizu. 
+
 ------------------------------------------------------------------------------------------------------------------------------------------------
+
 za pocetak uocavam da je Moose alat koji se fokusira na analizu složenosti klasa, metoda, broj metoda po klasi, broj linija po metodi, generalno analizu softverske arhitekture, dok SonarQube ima fokus na statickoj analzi, slozenost koda, duplikacije, broj linija, f-ja, klasa, pokrivenost testovima itd.
 
 Zapocinjem analizu sa drugim projektom koji deluje da je bolje parsiran i malo je manji od prethodnog.
