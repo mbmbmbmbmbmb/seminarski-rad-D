@@ -108,7 +108,7 @@ Kada se udje u bilo koju test klasu vidim da sve one nasledjuju klase TestCase i
 Razlog zasto Moose broji te klase moze biti to sto u objektno-orijentisanim sistemima kada jedna klasa nasledjuje drugu, roditeljska klasa se tretira kao deo hijerarhije nasledjivanja, i klase koje ih nasledjuju zavise od njih.
 Takodje, postoji velik broj anonymous klasa koje su najverovatnije greska parsera.
 
-Sto se tice metoda iz proslog projekta u Moose alatu pokazuje 10301 dok u sonarQube 9834. Vodeci se zakljucnom iz ovog primera, proveravam broj <initializer> metoda jednostavnim upitom. Lako se vidi da u projektu ima 294 takve metode.
+Sto se tice metoda iz proslog primera u Moose alatu pokazuje 10301 dok u sonarQube 9834. Vodeci se zakljuckom iz ovog primera, proveravam broj <initializer> metoda jednostavnim upitom. Lako se vidi da u projektu ima 294 takve metode.
 I kada se oduzme tih 294 metode i dalje postoji znacajna razlika. 
 Analizom nekih pojedinacnih klasa mogu da zakljucim da sonarQube broji metode klase tako sto u njih ubraja i metode ugnjezdenih klasa. 
 Moose unutar system complexity-a (u kom sam i poredila broj metoda) posebno broji metode svake klase sto je mnogo logicnije i ;preglednije. 
