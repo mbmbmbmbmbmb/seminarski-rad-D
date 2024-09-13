@@ -99,3 +99,6 @@ Opet u Moose alatu smo jasno mogli da uporedimo broj metoda i linija koda unuat 
 
 Kada promenim podesavanja Sysyem Complexity-a mogu da vidim broj linija komentara. Jasno se moze videti da vecina klasa ima jednak broj komentara sto u inspectoru stoji da je 2.
 U sonarQube broj komentara je raznovrsan. Kada u inspectoru pogledam koje komentare Moose broji zapazam da Moose broji samo komentare koji se nalaze iznad klase, odnosno koji su vezani za klasu, sto ima smisla buduci da su u ovom slucaju selektovane klase u upitu u cilj je vizualizacija klasa.
+Vracam se na predjasnji projekat i vidim da je razlika u broju komentara koja je bila drasticna u poredjenju ova dva alata upravo to da Moose broji komentare koji se nalaze iznad klase odnosno koji se odnose na nju.
+Buduci da se komentari ovde odnose samo na klase s tim da su klase bile selektovane za system complexity, kao i bilo gde desnim klikom na klasu mozemo da je prosirimo sa Expand gde vidimo sve metode.
+Kaa ispectujemo metod jasno vidimo razlicit broj komentara koji zaista jesu vezani iskljucivo za taj metod kao sto se moze videti na slikama. Mislim da je ovaj vidim prikaza komentara mnogo bolji i jasniji jer se za svaki metod i svaku klasu zasebno prikazuju komentari vezani za nju i nema potrebe da se ulazi u izvorni kod i trazi svaki komenatr.
