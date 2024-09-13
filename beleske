@@ -94,4 +94,4 @@ Ostale upadljive klase su PetController, OwnerController i Owner, sto se takodje
 Opet u Moose alatu smo jasno mogli da uporedimo broj metoda i linija koda unuat klasa dok u sonarQube to zahteva trazenje svake klase pojedinacno i uporedjivanjebrojki.
 
 Kada promenim podesavanja Sysyem Complexity-a mogu da vidim broj linija komentara. Jasno se moze videti da vecina klasa ima jednak broj komentara sto u inspectoru stoji da je 2.
-U sonarQube broj komentara je raznovrsan. Kada u inspectoru pogledam koje komentare Moose broji zapazam da Moose broji samo komentare koji se nalaze iznad klase, odnosno koji su vezani za klasu.
+U sonarQube broj komentara je raznovrsan. Kada u inspectoru pogledam koje komentare Moose broji zapazam da Moose broji samo komentare koji se nalaze iznad klase, odnosno koji su vezani za klasu, sto ima smisla buduci da su u ovom slucaju selektovane klase u upitu u cilj je vizualizacija klasa.
