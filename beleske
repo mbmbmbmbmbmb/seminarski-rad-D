@@ -109,6 +109,9 @@ Razlog zasto Moose broji te klase moze biti to sto u objektno-orijentisanim sist
 Takodje, postoji velik broj anonymous klasa koje su najverovatnije greska parsera.
 
 Sto se tice metoda iz proslog projekta u Moose alatu pokazuje 10301 dok u sonarQube 9834. Vodeci se zakljucnom iz ovog primera, proveravam broj <initializer> metoda jednostavnim upitom. Lako se vidi da u projektu ima 294 takve metode.
-I kada se oduzme tih 294 metode i dalje postoji znacajna razlika. Analizom nekih pojedinacnih klasa mogu da zakljucim da sonarQube broji metode klase tako sto u njih ubraja i metode ugnjezdenih klasa. 
-Moose posebno broji metode svake klase sto je mnogo logicnije i ;preglednije. Takodje kod pojedinih klasa uocavam da sonarQube neke metode nije ni izbrojao jer nigde nije navedeno koje metode su uracunate dok u Moose alatu mozemo videti naziv svih metoda koje se nalaze u pojedinacnim klasama.
+I kada se oduzme tih 294 metode i dalje postoji znacajna razlika. 
+Analizom nekih pojedinacnih klasa mogu da zakljucim da sonarQube broji metode klase tako sto u njih ubraja i metode ugnjezdenih klasa. 
+Moose unutar system complexity-a (u kom sam i poredila broj metoda) posebno broji metode svake klase sto je mnogo logicnije i ;preglednije. 
 Tako da, klase koje sam izdvojila u proslom primeru da imaju drasticnu razliku u broju metoda imaju ugnjezdene klase cije metode sonarQube broji kao metode glavne klase.
+Dok na primer u queries browseru mozemo da vidimo broj metoda citave klase zajedno sa ugnjezdenim klasama kao kod sonaQube, ali tu i dalje postoji razlika u broju metoda. Analizom izvornoh koda mogu da zakljucim da sonarQube iz nekog razloga ne broji sve metode unutar klase.
+Jos jedna mana je to sto nigde nije navedeno koje metode su uracunate a koje ne, dok u Moose alatu mozemo videti naziv svih metoda koje se nalaze u pojedinacnim klasama.
