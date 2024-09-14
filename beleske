@@ -63,7 +63,9 @@ Pronalazim te klasse u Moose i uporedjujem ih sa PeriodFormatterBuider(u sonarQu
 Sto se broja atributa tice, sonarQube nema opciju pregleda broja atributa, dok je u Moose alatu broj atributa predstavljen sirinom kockica, neke klase koje mogu da izdvojim su PeriodFormatterBuider, AssembeledChronology, Constants, DateTimeFieldType, PeriodType.
 U podesavanjima je moguce promeniti kriterijume za visinu, sirinu i boju kvadratica. 
 Kada primenim numberOfComments na visinu kvadratica zapazam klasu LoadedFile kao klasu sa najvecim brojem komentara(iako u inspectoru pise da je broj komentara 5), dok je to u sonarQube klasa DateTime sa 1215 linija komentara. 
-Kako bih uporedila broj komentara klase LoadedFile pokusala sam da je nadjem u sonarQube, ali ona tamo ne postoji(kao sto se moze videti sa slike). Kada otvorim inspector za klasu DateTime moze se videti da ona ima samo 2 komentara, za raliku od 1215 u sonarQube.
+Kako bih uporedila broj komentara klase LoadedFile pokusala sam da je nadjem u sonarQube, ali ona tamo ne postoji(kao sto se moze videti sa slike), odnosno klasa se ne nalazi ns spisku klasa jer je rec o ugnjezdenoj klasi i ne mozemo znati za njeno postojenje dok ne udjemo redom u sve klase i nadjemo klasu u kojoj se ona nalazi. 
+Ovo zahteva dosta vremena i nemamo jasan prikaz svih klasa u sistemu, a takodje ne mozemo videti posebno karakteristike vezane za tu ugnjezdenu klasu jer sonarQube broji njene metode, linija koda i sve ostalo u roditeljsku klasu, sto nije slucaj sa Moose jer mozemo da vidimo spisak svih klasa xajedno sa ugnjezdenim i da vidimo posebno njene karakteristike.
+Kada otvorim inspector za klasu DateTime moze se videti da ona ima samo 2 komentara, za raliku od 1215 u sonarQube.
 
 U Moose alatu postoji distribution map gde mozemo da vidimo svih 528 klasa kao "kucice" gde prozorcici predstavljaju atribute i metode, ovo nam omogucava jako dobar vizuelni prikaz svih klasa u projektu i lako mozemo porediti velicinu klasa.
 U sonarQube alatu ovakva analiza bi bila mnogo teza buduci da ne postoji zapis o broju atributa unutar klase, a da bi uporedili broj metoda mooramo ulaziti rucno u svaki paket i gledati koja klasa ima koji broj metoda i tako vrsiti poredjenje velicine klasa celog projekta.
@@ -115,3 +117,4 @@ Moose unutar system complexity-a (u kom sam i poredila broj metoda) posebno broj
 Tako da, klase koje sam izdvojila u proslom primeru da imaju drasticnu razliku u broju metoda imaju ugnjezdene klase cije metode sonarQube broji kao metode glavne klase.
 Dok na primer u queries browseru mozemo da vidimo broj metoda citave klase zajedno sa ugnjezdenim klasama kao kod sonaQube, ali tu i dalje postoji razlika u broju metoda. Analizom izvornoh koda mogu da zakljucim da sonarQube iz nekog razloga ne broji sve metode unutar klase.
 Jos jedna mana je to sto nigde nije navedeno koje metode su uracunate a koje ne, dok u Moose alatu mozemo videti naziv svih metoda koje se nalaze u pojedinacnim klasama.
+Da bih dosla do ovog zakljucka morala sam u izvornom kodu da rucno brojim metode da bih shvatila da sonarQube ne broji neke metode, ali nigde nije navedeno koje broji a koje ne.
